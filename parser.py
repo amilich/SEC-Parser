@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib
+import re
 import unicodedata
 
 name = 'https://www.sec.gov/Archives/edgar/data/320193/000119312515259935/R3.htm'
@@ -17,9 +18,11 @@ for i in lines:
 
 	amount = []
 	for j in num:
-		# print j.get_text()
-		text = unicodedata.normalize('NFKD', j.get_text()[:-1]).encode('ascii','ignore')
-		amount.append(text)
+		text = re.sub(r"[\s$,]", "", j.get_text())
+		if '(' or ')' in text:
+			text = text.replace(')', "").replace('(', '-')
+		text = unicodedata.normalize('NFKD', text).encode('ascii','ignore')
+		amount.append(int(text))
 
 	if len(num) > 0:
 		print pl[0].get_text()
