@@ -3,7 +3,7 @@ import urllib
 import re
 import unicodedata
 
-name = 'https://www.sec.gov/Archives/edgar/data/320193/000119312515259935/R3.htm'
+name = 'https://www.sec.gov/Archives/edgar/data/1288776/000128877615000046/R5.htm'
 url = urllib.urlopen(name).read()
 soup = BeautifulSoup(url, 'lxml')
 # print type(soup)
@@ -13,7 +13,7 @@ lines = soup.find_all('tr', {'class':['re', 'ro', 'reu', 'rou', 'rh']})
 
 sec_table = {}
 for i in lines:
-	pl = i.find_all('td', class_='pl ')
+	pl = i.find_all('a', class_='a')
 	num = i.find_all('td', {'class':['nump', 'num']})
 
 	amount = []
