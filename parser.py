@@ -60,11 +60,11 @@ def parse(soup):
 			if '(' or ')' in text:
 				text = text.replace(')', '').replace('(', '-')
 			text = unicodedata.normalize('NFKD', text).encode('ascii','ignore')
-			amount.append(int(text))
+			amount.append(float(text))
 
 		if len(num) > 0:
-			print pl[0].get_text()
-			print amount
+			print(pl[0].get_text())
+			print(amount)
 			sec_table[pl[0].get_text()] = amount
 
 def main():
