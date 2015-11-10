@@ -10,11 +10,7 @@ def get_pe_ratio(ticker):
 
 def get_ebitda(ticker):
 	ebitda = Share(ticker).get_ebitda()
-	if ebitda[-1] == 'M':
-		ebitda = float(ebitda[:-1]) * 10**6
-	elif ebitda[-1] == 'B':
-		ebitda = float(ebitda[:-1]) * 10**9
-	return ebitda
+	return float(ebitda[:-1]) * (10**6 if 'M' in ebitda[-1] else 10**9)
 
 def get_fcf(ticker):
 	try:
