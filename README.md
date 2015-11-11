@@ -5,5 +5,8 @@
 `pip install beautifulsoup4`
 
 [lxml](http://lxml.de/) 3.5.0b1 or higher  
-`pip install lxml`
+`pip install lxml`  
 `easy_install lxml`
+
+[yahoo-finance](https://github.com/lukaszbanasiak/yahoo-finance) 1.1.4 or higher  
+`pip install yahoo-finance`
