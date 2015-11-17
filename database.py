@@ -1,6 +1,10 @@
 from pymongo import MongoClient
 from parser import *
 
+"""
+SEC Parser Database Manager
+"""
+
 # Insert ticker into database 
 def insert_ticker(db, tick):
 	report = scrapeSEC(tick)
